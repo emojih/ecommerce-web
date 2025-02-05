@@ -136,19 +136,59 @@ const Add = () => {
       <div>
         <p className="mb-2">Product Sizes</p>
         <div className="flex gap-3">
-          <div>
+          <div
+            onClick={() =>
+              setSizes((prev) =>
+                prev.includes("S")
+                  ? prev.filter((item) => item !== "S")
+                  : [...prev, "S"]
+              )
+            }
+          >
             <p className="bg-slate-200 px-3 py-1 cursor-pointer">S</p>
           </div>
-          <div>
+          <div
+            onClick={() =>
+              setSizes((prev) =>
+                prev.includes("M")
+                  ? prev.filter((item) => item !== "M")
+                  : [...prev, "M"]
+              )
+            }
+          >
             <p className="bg-slate-200 px-3 py-1 cursor-pointer">M</p>
           </div>
-          <div>
+          <div
+            onClick={() =>
+              setSizes((prev) =>
+                prev.includes("L")
+                  ? prev.filter((item) => item !== "L")
+                  : [...prev, "L"]
+              )
+            }
+          >
             <p className="bg-slate-200 px-3 py-1 cursor-pointer">L</p>
           </div>
-          <div>
+          <div
+            onClick={() =>
+              setSizes((prev) =>
+                prev.includes("XL")
+                  ? prev.filter((item) => item !== "XL")
+                  : [...prev, "XL"]
+              )
+            }
+          >
             <p className="bg-slate-200 px-3 py-1 cursor-pointer">XL</p>
           </div>
-          <div>
+          <div
+            onClick={() =>
+              setSizes((prev) =>
+                prev.includes("XXL")
+                  ? prev.filter((item) => item !== "XXL")
+                  : [...prev, "XXL"]
+              )
+            }
+          >
             <p className="bg-slate-200 px-3 py-1 cursor-pointer">XXL</p>
           </div>
         </div>
