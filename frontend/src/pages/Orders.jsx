@@ -44,6 +44,12 @@ const Orders = () => {
         <Title text1={"MY"} text2={"ORDERS"} />
       </div>
 
+      <p className="mt-4 text-gray-500 text-sm">
+        After placing an order via bank transfer, please contact us via whatsapp
+        on <strong>08027230787</strong> for assistance with the final delivery
+        process.
+      </p>
+
       <div>
         {orderData.map((item, index) => (
           <div

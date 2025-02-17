@@ -91,7 +91,10 @@ const Product = () => {
           <hr className="mt-8 sm:w-4/5" />
           <div className="text-sm text-gray-500 mt-5 flex flex-col gap-1">
             <p>100% Original Product</p>
-            <p>Cash on delivery is available on this product</p>
+            <p>
+              We offer secure online payment options for a seamless checkout
+              experience.
+            </p>
             <p>Easy return and exchange policy within 7days</p>
           </div>
         </div>
@@ -104,16 +107,17 @@ const Product = () => {
         </div>
         <div className="flex flex-col gap-4 border px-6 py-6 text-sm text-gray-500">
           <p>
-            An ecommerce website, amet consectetur adipisicing elit. Laudantium
-            nesciunt quia aliquid dicta odio explicabo, facere eligendi soluta!
-            Enim commodi repellendus culpa aut inventore accusantium sapiente
-            veritatis quia nesciunt! Tenetur!
+            This product is designed with the highest standards of quality and
+            durability in mind. It's perfect for those who appreciate fine
+            craftsmanship and attention to detail. Whether you're using it for
+            daily tasks or special occasions, it delivers both style and
+            functionality.
           </p>
           <p>
-            Ecommerce Website, amet consectetur adipisicing elit. Laudantium
-            nesciunt quia aliquid dicta odio explicabo, facere eligendi soluta!
-            Enim commodi repellendus culpa aut inventore accusantium sapiente
-            veritatis quia nesciunt! Tenetur!
+            Our product has received excellent feedback from customers who value
+            its exceptional quality and versatile use. We take pride in offering
+            products that not only meet but exceed customer expectations,
+            ensuring satisfaction with every purchase.
           </p>
         </div>
       </div>
