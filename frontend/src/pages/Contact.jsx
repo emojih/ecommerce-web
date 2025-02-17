@@ -13,10 +13,10 @@ const Contact = () => {
         <div className="flex flex-col justify-center items-start gap-6">
           <p className="font-semibold text-xl text-gray-600">Our Store</p>
           <p className="text-gray-500">
-            5467 Wellington Street <br /> Idumota, Lagos, Nigeria
+            322 road C Close, <br /> Festac Town, Lagos, Nigeria
           </p>
           <p className="text-gray-500">
-            Tel: (234) 803-927-1560 <br /> Email: admin@forever.com
+            Tel: (234) 802-723-0787 <br /> Email: admin@forever.com
           </p>
           <p className="font-semibold text-xl text-gray-600">
             Careers at Forever

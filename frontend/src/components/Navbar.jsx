@@ -44,12 +44,15 @@ const Navbar = () => {
         </NavLink>
       </ul>
       <div className="flex items-center gap-6">
-        <img
-          onClick={() => setShowSearch(true)}
-          src={assets.search_icon}
-          alt=""
-          className="w-5 cursor-pointer"
-        />
+        {/* Show search icon only on /collection page */}
+        {location.pathname === "/collection" && (
+          <img
+            onClick={() => setShowSearch(true)}
+            src={assets.search_icon}
+            alt=""
+            className="w-5 cursor-pointer"
+          />
+        )}
         <div className="group relative">
           <img
             onClick={() => (token ? null : navigate("/login"))}

@@ -17,10 +17,11 @@ const LatestCollection = () => {
       <div className="text-center py-8 text-3xl">
         <Title text1={"LATEST"} text2={"COLLECTION"} />
         <p className="w-3/4 m-auto text-xs sm:text-sm md:text-base text-gray-600">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente
-          soluta deserunt optio praesentium consectetur non veritatis?
-          Consequatur placeat minus nesciunt nisi a saepe eligendi alias
-          accusamus molestiae qui! Excepturi, minus.
+          Discover our latest collection of stylish hair accessories designed to
+          add the perfect touch to any look. From elegant hairpins to chic
+          headbands, our pieces are crafted to make you feel confident and
+          beautiful every day. Find the perfect accessory to match your unique
+          style!
         </p>
       </div>
 

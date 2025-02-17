@@ -8,9 +8,10 @@ const Footer = () => {
         <div>
           <img src={assets.logo} className="mb-5 w-32 " alt="" />
           <p className="w-full md:w-2/3 text-gray-600">
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quidem
-            maxime accusamus suscipit, eligendi beatae culpa reiciendis voluptas
-            aperiam atque, iusto sunt perferendis.
+            At Hair Accesories By Ella, we offer high-quality hair accessories
+            that help you express your unique style. Our curated collection is
+            designed to make every hairstyle effortless and beautiful, perfect
+            for any occasion.
           </p>
         </div>
 
@@ -27,15 +28,15 @@ const Footer = () => {
         <div>
           <p className="text-xl font-medium mb-5">GET IN TOUCH</p>
           <ul className="flex flex-col gap-1 text-gray-600">
-            <li>+234-803-927-1560</li>
-            <li>emojih@forever.com</li>
+            <li>+234-802-723-0787</li>
+            <li>emmanuelojih112@gmail.com</li>
           </ul>
         </div>
       </div>
       <div>
         <hr />
         <p className="py-5 text-sm text-center">
-          Copyright 2024@ forever.com - All Rights Reserved
+          Copyright 2025@ hairaccesoriesbyella - All Rights Reserved
         </p>
       </div>
     </div>

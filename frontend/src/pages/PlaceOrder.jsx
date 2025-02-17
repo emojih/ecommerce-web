@@ -178,7 +178,6 @@ const PlaceOrder = () => {
           />
         </div>
         <input
-          required
           onChange={onChangeHandler}
           name="email"
           value={formData.email}
@@ -217,7 +216,6 @@ const PlaceOrder = () => {
         </div>
         <div className="flex gap-3">
           <input
-            required
             onChange={onChangeHandler}
             name="zipcode"
             value={formData.zipcode}
@@ -226,7 +224,6 @@ const PlaceOrder = () => {
             className="border border-gray-300 rounded py-1.5 px-3.5 w-full"
           />
           <input
-            required
             onChange={onChangeHandler}
             name="country"
             value={formData.country}
@@ -287,7 +284,7 @@ const PlaceOrder = () => {
                 }`}
               ></p>
               <p className="text-gray-500 text-sm font-medium mx-4">
-                CASH ON DELIVERY
+                BANK TRANSFER
               </p>
             </div>
           </div>
