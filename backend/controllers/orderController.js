@@ -5,8 +5,8 @@ import Stripe from 'stripe'
 import razorpay from 'razorpay'
 
 // global variables
-const currency = 'usd'
-const deliveryCharge = 10
+const currency = 'ngn'
+const deliveryCharge = 3000
 
 // gateway initialized
 
