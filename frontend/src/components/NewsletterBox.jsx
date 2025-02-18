@@ -11,9 +11,9 @@ const NewsletterBox = () => {
         Subscribe now & get 20% off
       </p>
       <p className="text-gray-400 mt-3">
-        Sign up for our newsletter and stay updated on the latest trends in hair
-        accessories, exclusive offers, and new arrivals. Be the first to know
-        about our special promotions and receive 20% off your first order!
+        Sign up for our newsletter and stay updated on the latest trends in
+        designer clothes, exclusive offers, and new arrivals. Be the first to
+        know about our special promotions and receive 20% off your first order!
       </p>
       <form
         onSubmit={onSubmitHandler}

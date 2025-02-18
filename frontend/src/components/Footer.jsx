@@ -8,10 +8,9 @@ const Footer = () => {
         <div>
           <img src={assets.logo} className="mb-5 w-32 " alt="" />
           <p className="w-full md:w-2/3 text-gray-600">
-            At Hair Accesories By Ella, we offer high-quality hair accessories
-            that help you express your unique style. Our curated collection is
-            designed to make every hairstyle effortless and beautiful, perfect
-            for any occasion.
+            At Forever, we offer high-quality designer wears that help you
+            express your unique style. Our curated collection is designed to
+            make you beautiful and perfect for any occasion.
           </p>
         </div>
 
@@ -28,8 +27,8 @@ const Footer = () => {
         <div>
           <p className="text-xl font-medium mb-5">GET IN TOUCH</p>
           <ul className="flex flex-col gap-1 text-gray-600">
-            <li>+234-802-723-0787</li>
-            <li>emmanuelojih112@gmail.com</li>
+            <li>+234-804-123-6587</li>
+            <li>admin@forever.com</li>
           </ul>
         </div>
       </div>
