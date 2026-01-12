@@ -75,7 +75,7 @@ const About = () => {
         </div>
       </div>
 
-      <NewsletterBox />
+      {/* <NewsletterBox /> */}
     </div>
   );
 };
