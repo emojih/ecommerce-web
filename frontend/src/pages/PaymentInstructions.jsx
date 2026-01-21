@@ -13,7 +13,7 @@ const PaymentInstructions = () => {
     },
     {
       bank: "Monie Point",
-      accountName: "Poheav Beauty",
+      accountName: "Poheav Beauty / Patience Asore",
       accountNumber: "6327665385",
     },
     {

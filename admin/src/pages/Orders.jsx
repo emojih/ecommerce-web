@@ -17,7 +17,7 @@ const Orders = ({ token }) => {
       const response = await axios.post(
         backendUrl + "/api/order/list",
         {},
-        { headers: { token } }
+        { headers: { token } },
       );
       if (response.data.success) {
         setOrders(response.data.orders.reverse());
@@ -34,7 +34,7 @@ const Orders = ({ token }) => {
       const response = await axios.post(
         backendUrl + "/api/order/status",
         { orderId, status: event.target.value },
-        { headers: { token } }
+        { headers: { token } },
       );
       if (response.data.success) {
         await fetchAllOrders();
@@ -51,7 +51,7 @@ const Orders = ({ token }) => {
       const response = await axios.post(
         backendUrl + "/api/order/delete",
         { orderId },
-        { headers: { token } }
+        { headers: { token } },
       );
 
       if (response.data.success) {
@@ -140,7 +140,6 @@ const Orders = ({ token }) => {
                     ? "border-gray-400 text-gray-400 cursor-not-allowed"
                     : "border-red-500 text-red-500 hover:bg-red-500 hover:text-white"
                 }`}
-                disabled={order.status !== "Order Placed"}
               >
                 Delete
               </button>
