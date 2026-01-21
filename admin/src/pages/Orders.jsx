@@ -136,7 +136,7 @@ const Orders = ({ token }) => {
               <button
                 onClick={() => deleteOrderHandler(order._id)}
                 className={`border px-3 py-1.5 text-xs rounded transition-all duration-200 ${
-                  order.status !== "Order Placed"
+                  !["Pending Payment", "Order Placed"].includes(order.status)
                     ? "border-gray-400 text-gray-400 cursor-not-allowed"
                     : "border-red-500 text-red-500 hover:bg-red-500 hover:text-white"
                 }`}

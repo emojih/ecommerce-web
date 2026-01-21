@@ -113,7 +113,7 @@ const deleteOrder = async (req, res) => {
     }
 
     // Prevent deletion if status is not "Order Placed"
-    if (order.status !== "Order Placed") {
+    if (!["Pending Payment", "Order Placed"].includes(order.status)) {
       return res.json({
         success: false,
         message: "Cannot delete order once it has been processed",

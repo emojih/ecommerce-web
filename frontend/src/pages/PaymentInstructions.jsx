@@ -1,10 +1,14 @@
 import { useLocation } from "react-router-dom";
-import { CreditCard, MessageCircle } from "lucide-react";
+import { CreditCard, MessageCircle, Copy, Check } from "lucide-react";
+import { useState } from "react";
 import Title from "../components/Title";
 
 const PaymentInstructions = () => {
   const location = useLocation();
   const { amount } = location.state || { amount: 0 };
+
+  const [copiedIndex, setCopiedIndex] = useState(null);
+
   const bankAccounts = [
     {
       bank: "Zenith Bank",
@@ -23,6 +27,15 @@ const PaymentInstructions = () => {
     },
   ];
 
+  const copyAccountNumber = async (number, index) => {
+    await navigator.clipboard.writeText(number);
+    setCopiedIndex(index);
+
+    setTimeout(() => {
+      setCopiedIndex(null);
+    }, 1500);
+  };
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 pt-16 px-4 sm:px-14">
       <div className="max-w-2xl mx-auto">
@@ -35,6 +48,7 @@ const PaymentInstructions = () => {
             ₦{amount.toLocaleString()}
           </h2>
         </div>
+
         {/* Bank Details */}
         <div className="mt-6 grid gap-6 sm:grid-cols-2">
           {bankAccounts.map((account, index) => (
@@ -44,17 +58,38 @@ const PaymentInstructions = () => {
                 <h3 className="text-lg font-semibold">{account.bank}</h3>
               </div>
 
-              <div className="space-y-2 text-gray-700">
+              <div className="space-y-3 text-gray-700">
                 <p>
                   <span className="font-medium">Account Name:</span>{" "}
                   {account.accountName}
                 </p>
-                <p>
-                  <span className="font-medium">Account Number:</span>{" "}
-                  <span className="tracking-wider font-semibold">
-                    {account.accountNumber}
-                  </span>
-                </p>
+
+                <div className="flex items-center justify-between gap-3">
+                  <p>
+                    <span className="font-medium">Account Number:</span>{" "}
+                    <span className="tracking-wider font-semibold">
+                      {account.accountNumber}
+                    </span>
+                  </p>
+
+                  <button
+                    onClick={() =>
+                      copyAccountNumber(account.accountNumber, index)
+                    }
+                    className="p-2 rounded-full text-indigo-600 hover:bg-indigo-50 transition"
+                    title="Copy account number"
+                  >
+                    {copiedIndex === index ? (
+                      <Check size={18} className="text-green-600" />
+                    ) : (
+                      <Copy size={18} />
+                    )}
+                  </button>
+                </div>
+
+                {copiedIndex === index && (
+                  <p className="text-sm text-green-600">Copied to clipboard</p>
+                )}
               </div>
             </div>
           ))}
