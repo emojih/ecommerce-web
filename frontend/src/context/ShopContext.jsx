@@ -7,34 +7,23 @@ export const ShopContext = createContext();
 
 const ShopContextProvider = (props) => {
   const currency = "₦";
-  const delivery_fee = 3000;
+  const delivery_fee = 0;
   const backendUrl = import.meta.env.VITE_BACKEND_URL;
   const [search, setSearch] = useState("");
   const [showSearch, setShowSearch] = useState(false);
-  const [cartItems, setCartItems] = useState({});
+  const [cartItems, setCartItems] = useState(() => {
+    const savedCart = localStorage.getItem("cartItems");
+    return savedCart ? JSON.parse(savedCart) : {};
+  });
   const [products, setProducts] = useState([]);
 
   const [token, setToken] = useState("");
 
   const navigate = useNavigate();
-  const addToCart = async (itemId, size) => {
-    if (!size) {
-      toast.error("Select Product Size");
-      return;
-    }
+  const addToCart = async (itemId) => {
     let cartData = structuredClone(cartItems);
 
-    if (cartData[itemId]) {
-      if (cartData[itemId][size]) {
-        cartData[itemId][size] += 1;
-      } else {
-        cartData[itemId][size] = 1;
-      }
-    } else {
-      cartData[itemId] = {};
-
-      cartData[itemId][size] = 1;
-    }
+    cartData[itemId] = (cartData[itemId] || 0) + 1;
 
     setCartItems(cartData);
 
@@ -42,8 +31,8 @@ const ShopContextProvider = (props) => {
       try {
         await axios.post(
           backendUrl + "/api/cart/add",
-          { itemId, size },
-          { headers: { token } }
+          { itemId },
+          { headers: { token } },
         );
       } catch (error) {
         console.log(error);
@@ -53,24 +42,17 @@ const ShopContextProvider = (props) => {
   };
 
   const getCartCount = () => {
-    let totalCount = 0;
-    for (const items in cartItems) {
-      for (const item in cartItems[items]) {
-        try {
-          if (cartItems[items][item] > 0) {
-            totalCount += cartItems[items][item];
-          }
-        } catch (error) {}
-      }
+    let total = 0;
+    for (const itemId in cartItems) {
+      total += cartItems[itemId];
     }
-
-    return totalCount;
+    return total;
   };
 
-  const updateQuantity = async (itemId, size, quantity) => {
+  const updateQuantity = async (itemId, quantity) => {
     let cartData = structuredClone(cartItems);
 
-    cartData[itemId][size] = quantity;
+    cartData[itemId] = quantity;
 
     setCartItems(cartData);
 
@@ -78,8 +60,8 @@ const ShopContextProvider = (props) => {
       try {
         await axios.post(
           backendUrl + "/api/cart/update",
-          { itemId, size, quantity },
-          { headers: { token } }
+          { itemId, quantity },
+          { headers: { token } },
         );
       } catch (error) {
         console.log(error);
@@ -90,14 +72,10 @@ const ShopContextProvider = (props) => {
 
   const getCartAmount = () => {
     let totalAmount = 0;
-    for (const items in cartItems) {
-      let itemInfo = products.find((product) => product._id === items);
-      for (const item in cartItems[items]) {
-        try {
-          if (cartItems[items][item] > 0) {
-            totalAmount += itemInfo.price * cartItems[items][item];
-          }
-        } catch (error) {}
+    for (const itemId in cartItems) {
+      const itemInfo = products.find((p) => p._id === itemId);
+      if (itemInfo) {
+        totalAmount += itemInfo.price * cartItems[itemId];
       }
     }
     return totalAmount;
@@ -122,11 +100,14 @@ const ShopContextProvider = (props) => {
       const response = await axios.post(
         backendUrl + "/api/cart/get",
         {},
-        { headers: { token } }
+        { headers: { token } },
       );
 
       if (response.data.success) {
-        setCartItems(response.data.cartData);
+        setCartItems((prev) => ({
+          ...prev,
+          ...response.data.cartData,
+        }));
       }
     } catch (error) {
       console.log(error);
@@ -135,14 +116,24 @@ const ShopContextProvider = (props) => {
   };
 
   useEffect(() => {
+    localStorage.setItem("cartItems", JSON.stringify(cartItems));
+  }, [cartItems]);
+
+  useEffect(() => {
     getProductsData();
   }, []);
   useEffect(() => {
-    if (!token && localStorage.getItem("token")) {
-      setToken(localStorage.getItem("token"));
-      getUserCart(localStorage.getItem("token"));
+    const savedToken = localStorage.getItem("token");
+    if (savedToken) {
+      setToken(savedToken);
     }
   }, []);
+
+  useEffect(() => {
+    if (token) {
+      getUserCart(token);
+    }
+  }, [token]);
 
   const value = {
     products,

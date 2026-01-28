@@ -17,9 +17,9 @@ const LatestCollection = () => {
       <div className="text-center py-8 text-3xl">
         <Title text1={"LATEST"} text2={"COLLECTION"} />
         <p className="w-3/4 m-auto text-xs sm:text-sm md:text-base text-gray-600">
-          Discover our latest collection of luxury products designed to add the
-          perfect touch to any look. Find the perfect wear to match your unique
-          style!
+          Discover our latest collection of luxury fragrances designed to add
+          the perfect touch to every moment. Find the perfect scent to match
+          your unique style!
         </p>
       </div>
 

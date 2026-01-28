@@ -18,26 +18,35 @@ const About = () => {
         />
         <div className="flex flex-col justify-center gap-6 md:w-2/4 text-gray-600">
           <p>
-            We are a team of passionate professionals committed to providing
-            high-quality products and exceptional customer service. With years
-            of experience in the industry, we strive to meet the needs of our
-            customers while maintaining a focus on innovation and
-            sustainability.
+            Poheav Scent was born from a deeply held belief: that Nigerian
+            consumers deserve access to the world’s finest designer
+            fragrances—authentic, original, and thoughtfully curated. We are a
+            fragrance destination committed to connecting our customers to
+            exceptional international perfumes through trust, expertise, and
+            intention. Over time, we have mastered the balance between global
+            standards and local understanding, ensuring every fragrance we offer
+            meets the highest expectations of quality and originality.
           </p>
           <p>
-            Our team is dedicated to creating an inclusive and dynamic work
-            environment where everyone can thrive. We believe in fostering
-            creativity, collaboration, and continuous learning to stay at the
-            forefront of our field.
+            At the heart of Poheav Scent is our customer. We exist because of
+            the trust placed in us, and we honour that trust through
+            transparency, attentive service, and genuine care. Every
+            recommendation and every bottle reflects our respect for the people
+            we serve. Poheav Scent is not just where you buy perfume. It is
+            where the world’s fragrances meet you.
           </p>
 
           <b className="text-gray-800">Our Mission</b>
           <p>
-            Our mission is to deliver products that not only meet but exceed the
-            expectations of our customers. We aim to create lasting
-            relationships built on trust, integrity, and mutual respect. Every
-            product we offer is designed with the goal of improving the lives of
-            our customers and contributing to a better world.
+            At Poheav Scents, our mission is to become the foremost destination
+            for individuals seeking top-quality perfumes, skincare products, and
+            beauty care solutions. We are dedicated to maintaining top-of-mind
+            awareness by offering luxury and elegant brands while prioritizing
+            personalized consultations and recommendations tailored to our
+            clients' needs and preferences. Our commitment extends beyond
+            profits, as we strive to educate and empower our clients, ensuring
+            they make informed choices that enhance their well-being and
+            confidence.
           </p>
         </div>
       </div>
@@ -46,36 +55,44 @@ const About = () => {
       </div>
       <div className="flex flex-col md:flex-row text-sm mb-20">
         <div className="border px-10 md:px-16 py-8 sm:py-20 flex flex-col gap-5">
-          <b>Quality Assurance:</b>
+          <b> Excellence:</b>
           <p className="text-gray-600">
-            We are committed to providing the highest quality products. Every
-            item undergoes rigorous testing to ensure that it meets our high
-            standards. We work with trusted suppliers and maintain strict
-            quality control to guarantee that our customers receive only the
-            best.
+            We uphold the highest standards of quality and service in everything
+            we do.
           </p>
         </div>
         <div className="border px-10 md:px-16 py-8 sm:py-20 flex flex-col gap-5">
-          <b>Convenience:</b>
+          <b>Personalization:</b>
           <p className="text-gray-600">
-            We understand the importance of convenience, and that’s why we’ve
-            made shopping with us as easy as possible. Our website is
-            user-friendly, and we offer fast, reliable shipping to ensure that
-            your orders arrive quickly and securely.
+            We believe in tailoring our recommendations and solutions to meet
+            the unique needs and preferences of each client.
           </p>
         </div>
         <div className="border px-10 md:px-16 py-8 sm:py-20 flex flex-col gap-5">
-          <b>Exceptional Customer Service:</b>
+          <b> Integrity: </b>
           <p className="text-gray-600">
-            Our customer service team is always ready to assist you with any
-            inquiries or concerns. We pride ourselves on providing exceptional
-            service and support, ensuring that every customer has a positive
-            experience with us.
+            We prioritize honesty, transparency, and ethical conduct in all our
+            interactions.
+          </p>
+        </div>
+        <div className="border px-10 md:px-16 py-8 sm:py-20 flex flex-col gap-5">
+          <b> Education: </b>
+          <p className="text-gray-600">
+            We are committed to educating and empowering our clients to make
+            informed choices about their beauty care regimen.
+          </p>
+        </div>
+        <div className="border px-10 md:px-16 py-8 sm:py-20 flex flex-col gap-5">
+          <b> Client-Centricity:</b>
+          <p className="text-gray-600">
+            We place our clients' needs and satisfaction at the forefront of our
+            business, ensuring their well-being and happiness drive our
+            decisions and actions.
           </p>
         </div>
       </div>
 
-      <NewsletterBox />
+      {/* <NewsletterBox /> */}
     </div>
   );
 };
