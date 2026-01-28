@@ -34,6 +34,10 @@ const Navbar = () => {
           <p>COLLECTION</p>
           <hr className="w-2/4 border-none h-[1.5px] bg-gray-700 hidden" />
         </NavLink>
+        <NavLink to="/brands" className="flex flex-col items-center gap-1">
+          <p>BRANDS WE STOCK</p>
+          <hr className="w-2/4 border-none h-[1.5px] bg-gray-700 hidden" />
+        </NavLink>
         <NavLink to="/about" className="flex flex-col items-center gap-1">
           <p>ABOUT</p>
           <hr className="w-2/4 border-none h-[1.5px] bg-gray-700 hidden" />
@@ -42,10 +46,15 @@ const Navbar = () => {
           <p>CONTACT</p>
           <hr className="w-2/4 border-none h-[1.5px] bg-gray-700 hidden" />
         </NavLink>
+        <NavLink to="/faq" className="flex flex-col items-center gap-1">
+          <p>FAQ</p>
+          <hr className="w-2/4 border-none h-[1.5px] bg-gray-700 hidden" />
+        </NavLink>
       </ul>
       <div className="flex items-center gap-6">
-        {/* Show search icon only on /collection page */}
-        {location.pathname === "/collection" && (
+        {/* Show search icon only on both page */}
+        {(location.pathname.includes("/collection") ||
+          location.pathname.includes("/brands")) && (
           <img
             onClick={() => setShowSearch(true)}
             src={assets.search_icon}
@@ -95,6 +104,13 @@ const Navbar = () => {
             to="/collection"
           >
             COLLECTION
+          </NavLink>
+          <NavLink
+            onClick={() => setVisible(false)}
+            className="py-2 pl-6 border"
+            to="/brands"
+          >
+            BRANDS WE STOCK
           </NavLink>
           <NavLink
             onClick={() => setVisible(false)}

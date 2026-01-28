@@ -1,5 +1,6 @@
 import React from "react";
 import Title from "../components/Title";
+import { FaInstagram, FaTiktok } from "react-icons/fa";
 import { assets } from "../assets/assets";
 const Contact = () => {
   return (
@@ -17,9 +18,31 @@ const Contact = () => {
           </p>
 
           <p className="text-gray-500">
-            Tel: (234) 812-397-1007 <br /> Email: poheavscents@gmail.com
+            Tel: (234) 812-397-1007; (234) 816-287-6854 <br /> Email:
+            poheavscents@gmail.com
+          </p>
+          <p className="text-gray-500 flex gap-2">
+            <a
+              href="https://www.instagram.com/poheavscent?igsh=NTl6bWZ5NGJjd2tl"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-black transition text-2xl"
+            >
+              <FaInstagram />
+            </a>
+
+            <a
+              href="https://www.tiktok.com/@poheavscents?_r=1&_t=ZS-93RoYycxYzh"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-black transition text-2xl"
+            >
+              <FaTiktok />
+            </a>
           </p>
         </div>
+        {/* SOCIAL MEDIA */}
+        <div className="flex items-center gap-6 pt-2 text-gray-700"></div>
       </div>
     </div>
   );

@@ -2,7 +2,7 @@ import orderModel from "../models/orderModel.js";
 
 // global variables
 const currency = "ngn";
-const deliveryCharge = 3000;
+const deliveryCharge = 0;
 
 // ============================
 // PLACE ORDER (BANK TRANSFER)
