@@ -34,7 +34,7 @@ const Hero = () => {
       </div>
 
       {/* Hero Right Side - Image Slider */}
-      <div className="w-full sm:w-1/2 h-[400px] sm:h-[500px] lg:h-[620px] relative overflow-hidden">
+      <div className="w-full sm:w-1/2 h-[380px] sm:h-[480px] lg:h-[600px] relative overflow-hidden">
         {images.map((img, index) => (
           <img
             key={index}
