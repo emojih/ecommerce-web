@@ -55,8 +55,8 @@ const Collection = () => {
       productsCopy = productsCopy.filter((item) =>
         priceRanges.some((range) => {
           switch (range) {
-            case "50-100":
-              return item.price >= 50000 && item.price <= 100000;
+            case "15-100":
+              return item.price >= 15000 && item.price <= 100000;
             case "100-300":
               return item.price > 100000 && item.price <= 300000;
             case "300-500":
@@ -164,10 +164,10 @@ const Collection = () => {
               <input
                 type="checkbox"
                 className="w-3"
-                value="50-100"
+                value="15-100"
                 onChange={togglePriceRange}
               />
-              ₦50,000 – ₦100,000
+              ₦15,000 – ₦100,000
             </p>
             <p className="flex gap-2">
               <input
@@ -195,6 +195,20 @@ const Collection = () => {
                 onChange={togglePriceRange}
               />
               ₦500,000 and above
+            </p>
+          </div>
+        </div>
+        {/* other items Filter */}
+        <div
+          className={`border border-gray-300 pl-5 py-3 mt-6 ${
+            showFilter ? "" : "hidden"
+          } sm:block`}
+        >
+          <p className="mb-3 text-sm font-medium">OTHER ITEMS AVAILABLE</p>
+          <div className="flex flex-col gap-2 text-sm font-light text-gray-700">
+            <p className="flex gap-2">
+              DEODORANTS, BODY SPRAY, <br /> HUMIDIFIERS, DIFFUSERS,
+              <br /> SCENTED CANDLES, CREAMS
             </p>
           </div>
         </div>
