@@ -2,6 +2,8 @@ import React, { useContext, useState } from "react";
 import { assets } from "../assets/assets";
 import { Link, NavLink } from "react-router-dom";
 import { ShopContext } from "../context/ShopContext";
+import { useLocation } from "react-router-dom";
+
 const Navbar = () => {
   const [visible, setVisible] = useState(false);
 
@@ -13,6 +15,7 @@ const Navbar = () => {
     setToken,
     setCartItems,
   } = useContext(ShopContext);
+  const location = useLocation();
 
   const logout = () => {
     localStorage.removeItem("token");
@@ -53,8 +56,9 @@ const Navbar = () => {
       </ul>
       <div className="flex items-center gap-6">
         {/* Show search icon only on both page */}
-        {(location.pathname.includes("/collection") ||
-          location.pathname.includes("/brands")) && (
+        {(location.pathname === "/" ||
+          location.pathname.includes("collection") ||
+          location.pathname.includes("brands")) && (
           <img
             onClick={() => setShowSearch(true)}
             src={assets.search_icon}
