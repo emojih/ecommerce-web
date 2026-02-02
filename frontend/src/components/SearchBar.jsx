@@ -31,7 +31,7 @@ const SearchBar = () => {
           onChange={(e) => {
             setSearch(e.target.value);
 
-            if (!location.pathname.includes("collection")) {
+            if (!location.pathname.includes("brands")) {
               navigate("/collection");
             }
           }}
