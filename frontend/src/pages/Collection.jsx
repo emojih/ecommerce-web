@@ -33,6 +33,46 @@ const Collection = () => {
   };
 
   // Apply Filters
+  // const applyFilter = () => {
+  //   let productsCopy = products.slice();
+
+  //   // Search filter
+  //   if (showSearch && search) {
+  //     productsCopy = productsCopy.filter((item) =>
+  //       item.name.toLowerCase().includes(search.toLowerCase()),
+  //     );
+  //   }
+
+  //   // Category filter
+  //   if (category.length > 0) {
+  //     productsCopy = productsCopy.filter((item) =>
+  //       category.includes(item.category),
+  //     );
+  //   }
+
+  //   // Price filter
+  //   if (priceRanges.length > 0) {
+  //     productsCopy = productsCopy.filter((item) =>
+  //       priceRanges.some((range) => {
+  //         switch (range) {
+  //           case "15-100":
+  //             return item.price >= 15000 && item.price <= 100000;
+  //           case "100-300":
+  //             return item.price > 100000 && item.price <= 300000;
+  //           case "300-500":
+  //             return item.price > 300000 && item.price <= 500000;
+  //           case "500+":
+  //             return item.price > 500000;
+  //           default:
+  //             return false;
+  //         }
+  //       }),
+  //     );
+  //   }
+
+  //   setFilterProducts(productsCopy);
+  // };
+
   const applyFilter = () => {
     let productsCopy = products.slice();
 
@@ -69,6 +109,9 @@ const Collection = () => {
         }),
       );
     }
+
+    // 🔥 DEFAULT SORT: newest uploads first
+    productsCopy.sort((a, b) => b.date - a.date);
 
     setFilterProducts(productsCopy);
   };

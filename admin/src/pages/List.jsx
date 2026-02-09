@@ -8,15 +8,35 @@ const List = ({ token }) => {
   const [list, setList] = useState([]);
   const navigate = useNavigate();
 
+  // const fetchList = async () => {
+  //   try {
+  //     const response = await axios.get(
+  //       backendUrl + "/api/product/list",
+  //       { headers: { token } } // optional but recommended
+  //     );
+
+  //     if (response.data.success) {
+  //       setList(response.data.products);
+  //     } else {
+  //       toast.error(response.data.message);
+  //     }
+  //   } catch (error) {
+  //     console.error(error);
+  //     toast.error(error.message);
+  //   }
+  // };
   const fetchList = async () => {
     try {
-      const response = await axios.get(
-        backendUrl + "/api/product/list",
-        { headers: { token } } // optional but recommended
-      );
+      const response = await axios.get(backendUrl + "/api/product/list", {
+        headers: { token },
+      });
 
       if (response.data.success) {
-        setList(response.data.products);
+        const sortedProducts = response.data.products.sort(
+          (a, b) => b.date - a.date,
+        );
+
+        setList(sortedProducts);
       } else {
         toast.error(response.data.message);
       }
@@ -33,7 +53,7 @@ const List = ({ token }) => {
       const response = await axios.post(
         backendUrl + "/api/product/remove",
         { id },
-        { headers: { token } }
+        { headers: { token } },
       );
 
       if (response.data.success) {
