@@ -1,5 +1,5 @@
-import React from "react";
-import { Routes, Route } from "react-router-dom";
+import React, { useEffect } from "react";
+import { Routes, Route, useLocation } from "react-router-dom";
 import Home from "./pages/Home";
 import Collection from "./pages/Collection";
 import Brands from "./pages/Brands";
@@ -20,6 +20,13 @@ import { ToastContainer, toast } from "react-toastify";
 import Verify from "./pages/Verify";
 import Faq from "./pages/Faq";
 const App = () => {
+  const location = useLocation();
+
+  useEffect(() => {
+    window.gtag("config", "G-75S7EQBRKV", {
+      page_path: location.pathname,
+    });
+  }, [location]);
   return (
     <div className="px-4 sm:px- [5vw] md:px-[7vw] lg:px-[9vw]">
       <ToastContainer />
