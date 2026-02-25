@@ -55,11 +55,7 @@ const placeOrder = async (req, res) => {
        <p><strong>Phone:</strong> ${address.phone}</p>
         <p><strong>Address:</strong> ${address.street}, ${address.state}, ${address.country}</p>
          <p><strong>Total Amount:</strong> ₦${amount}</p> <h3>Items:</h3> <ul> ${items
-           .map((item) => (
-             <li>
-               ${item.name} - Quantity: ${item.quantity}
-             </li>
-           ))
+           .map((item) => `<li>${item.name} - Quantity: ${item.quantity}</li>`)
            .join("")} </ul> `,
     });
 
