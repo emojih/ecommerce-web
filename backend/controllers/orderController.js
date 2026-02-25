@@ -77,6 +77,44 @@ const placeOrder = async (req, res) => {
     res.json({ success: false, message: error.message });
   }
 };
+// const placeOrder = async (req, res) => {
+//   try {
+//     const { items, amount, address, userId } = req.body;
+
+//     // basic validation (server-side safety)
+//     if (!address?.firstName || !address?.street || !address?.phone) {
+//       return res.json({
+//         success: false,
+//         message: "Name, street and phone number are required",
+//       });
+//     }
+
+//     const orderData = {
+//       userId: userId || null, // allow guest checkout
+//       items,
+//       address,
+//       amount,
+//       paymentMethod: "BANK_TRANSFER",
+//       payment: false,
+//       status: "Pending Payment",
+//       currency,
+//       deliveryCharge,
+//       date: Date.now(),
+//     };
+
+//     const newOrder = new orderModel(orderData);
+//     await newOrder.save();
+
+//     res.json({
+//       success: true,
+//       message: "Order placed successfully",
+//       orderId: newOrder._id,
+//     });
+//   } catch (error) {
+//     console.log(error);
+//     res.json({ success: false, message: error.message });
+//   }
+// };
 
 // ============================
 // ADMIN – GET ALL ORDERS
