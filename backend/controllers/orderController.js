@@ -50,7 +50,17 @@ const placeOrder = async (req, res) => {
       from: `"New Order Alert" <${process.env.EMAIL_USER}>`,
       to: "poheavscents@gmail.com",
       subject: "🛒 New Order Received",
-      html: `<h2>New Order Received</h2>`,
+      html: `<h2>New Order Received</h2>
+      <p><strong>Name:</strong> ${address.firstName} ${address.lastName || ""}</p>
+       <p><strong>Phone:</strong> ${address.phone}</p>
+        <p><strong>Address:</strong> ${address.street}, ${address.state}, ${address.country}</p>
+         <p><strong>Total Amount:</strong> ₦${amount}</p> <h3>Items:</h3> <ul> ${items
+           .map((item) => (
+             <li>
+               ${item.name} - Quantity: ${item.quantity}
+             </li>
+           ))
+           .join("")} </ul> `,
     });
 
     res.json({
