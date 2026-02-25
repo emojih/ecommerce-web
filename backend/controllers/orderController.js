@@ -1,14 +1,6 @@
 import orderModel from "../models/orderModel.js";
 import nodemailer from "nodemailer";
 
-// create transporter
-const transporter = nodemailer.createTransport({
-  service: "gmail",
-  auth: {
-    user: process.env.EMAIL_USER,
-    pass: process.env.EMAIL_PASS,
-  },
-});
 // global variables
 const currency = "ngn";
 const deliveryCharge = 0;
@@ -16,10 +8,20 @@ const deliveryCharge = 0;
 // ============================
 // PLACE ORDER (BANK TRANSFER)
 // ============================
-
 const placeOrder = async (req, res) => {
   try {
     const { items, amount, address, userId } = req.body;
+
+    const transporter = nodemailer.createTransport({
+      service: "gmail",
+      auth: {
+        user: process.env.EMAIL_USER,
+        pass: process.env.EMAIL_PASS,
+      },
+    });
+
+    console.log("EMAIL_USER:", process.env.EMAIL_USER);
+    console.log("EMAIL_PASS:", process.env.EMAIL_PASS);
 
     if (!address?.firstName || !address?.street || !address?.phone) {
       return res.json({
@@ -44,27 +46,11 @@ const placeOrder = async (req, res) => {
     const newOrder = new orderModel(orderData);
     await newOrder.save();
 
-    // ===============================
-    // SEND EMAIL NOTIFICATION
-    // ===============================
-
     await transporter.sendMail({
       from: `"New Order Alert" <${process.env.EMAIL_USER}>`,
-      to: "Poheavscents@gmail.com",
+      to: "poheavscents@gmail.com",
       subject: "🛒 New Order Received",
-      html: `
-        <h2>New Order Received</h2>
-        <p><strong>Name:</strong> ${address.firstName} ${address.lastName || ""}</p>
-        <p><strong>Phone:</strong> ${address.phone}</p>
-        <p><strong>Address:</strong> ${address.street}, ${address.state}, ${address.country}</p>
-        <p><strong>Total Amount:</strong> ₦${amount}</p>
-        <h3>Items:</h3>
-        <ul>
-          ${items
-            .map((item) => `<li>${item.name} - Quantity: ${item.quantity}</li>`)
-            .join("")}
-        </ul>
-      `,
+      html: `<h2>New Order Received</h2>`,
     });
 
     res.json({
